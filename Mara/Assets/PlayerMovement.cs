@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
@@ -16,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         
-        rb = GetComponent<Rigidbody2D>();
+        GameObject player = GameObject.FindWithTag("Player");
+        rb = player.GetComponent<Rigidbody2D>();
 
     }
 
@@ -32,13 +34,16 @@ public class PlayerMovement : MonoBehaviour
 
 
         if(Input.GetButtonDown("Jump")){
-            rb.velocity = new Vector2(rb.velocity.x + jumpForce, rb.velocity.y + jumpForce);
-
+           Jump();
         }
 
 
     }
 
+    private void Jump()
+    {
+        transform.Translate(Vector3.up * Time.deltaTime * jumpForce);
+    }
 
     private void FixedUpdate(){
         rb.velocity = new Vector2 (moveX, moveY);
