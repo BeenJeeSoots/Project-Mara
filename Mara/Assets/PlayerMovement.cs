@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private float moveX, moveY;
+    private Vector2 movement; 
     [SerializeField] float speed = 2.0f;
     [SerializeField] float jumpForce = 8.0f;
     public GameObject fishingRod;
@@ -30,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         moveX = Input.GetAxisRaw("Horizontal") * speed;
         moveY = Input.GetAxisRaw("Vertical") * speed;
 
+        
+
         if (Input.GetKeyDown(KeyCode.F)){
             if (!fishingRod.activeSelf) { fishingRod.SetActive(true);   }
             else                        { fishingRod.SetActive(false);  }
@@ -50,7 +53,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate(){
-        rb.velocity = new Vector2 (moveX, moveY);
+        //rb.velocity = new Vector2 (moveX, moveY);
+        movement = new Vector2(moveX, moveY) * speed;
+        rb.velocity = movement.normalized;
 
 
         animator.SetFloat("moveForwards", rb.velocity.y);
