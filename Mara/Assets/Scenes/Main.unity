@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 252228939}
   - component: {fileID: 252228938}
   - component: {fileID: 252228940}
+  - component: {fileID: 252228941}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -243,9 +244,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.037899077, y: -0.3716339}
+  m_Offset: {x: 0.06, y: -0.41798875}
   serializedVersion: 2
-  m_Radius: 0.10154098
+  m_Radius: 0.055186123
 --- !u!50 &252228939
 Rigidbody2D:
   serializedVersion: 4
@@ -285,9 +286,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aed1338d7b30848ad35a032cb3fef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 1.5
   jumpForce: 20
   fishingRod: {fileID: 1187695148}
+  animator: {fileID: 252228941}
+--- !u!95 &252228941
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252228935}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d791755fe1332045bece4cec448c094, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
